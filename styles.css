@@ -274,6 +274,12 @@ img{ display:block; max-width:100%; }
 .price-row .vals{ display:grid; grid-template-columns:repeat(var(--pc,3), minmax(34px, 54px)); gap:8px; text-align:right; }
 .price-row .vals span{ font-family:var(--serif); font-size:1.02rem; font-weight:600; color:var(--ink); white-space:nowrap; }
 .price-row .vals span.single{ grid-column:1 / -1; white-space:nowrap; font-size:1.08rem; }
+/* Single-price rows: the matrix column caps at 54px, which is too narrow
+   for ranges like "150 – 200 €" — let the column size to the content. */
+.price-row .vals:has(.single){ grid-template-columns:auto; }
+@container site (max-width:520px){
+  .price-row .vals span.single{ white-space:normal; }
+}
 .price-sub{ font-family:var(--sans); font-weight:600; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin:26px 0 4px; }
 .price-note{ text-align:center; color:var(--muted); font-size:.82rem; margin-top:22px; font-style:italic; }
 
