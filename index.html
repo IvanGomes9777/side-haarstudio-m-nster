@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDE Haarstudio Münster — Friseur mit oder ohne Termin</title>
+<meta name="description" content="SIDE Haarstudio Münster — ehrliches Friseurhandwerk mitten in Münster. Damen, Herren, Kinder, Color & Balayage, Beauty & Faden. Mit oder ohne Termin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="booking.css">
+</head>
+<body>
+<div class="scroller" id="scroller">
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">SIDE<small>Haarstudio Münster</small></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#leistungen" data-nav="leistungen">Leistungen</a>
+        <a href="#studio" data-nav="studio">Studio</a>
+        <a href="#portfolio" data-nav="portfolio">Portfolio</a>
+        <a href="#preise" data-nav="preise">Preise</a>
+        <a href="#kontakt" data-nav="kontakt">Kontakt</a>
+      </nav>
+      <button class="btn btn-solid header-cta" data-book>Termin buchen</button>
+      <button class="burger" id="burger" aria-label="Menü" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#studio">Studio</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#preise">Preise</a>
+      <a href="#kontakt">Kontakt</a>
+      <button class="btn btn-solid" data-book>Termin buchen</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" data-layout="image" id="top">
+      <div class="wrap">
+        <div class="hero-stage">
+          <div class="hero-media">
+            <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=1600&h=1300&q=80" alt="Friseurin arbeitet an blondem Haar im Salon">
+            <div class="hero-copy">
+              <div class="eyebrow">Friseur · mit oder ohne Termin</div>
+              <h1>Modernes Haar,<br>natürlich&nbsp;schön.</h1>
+              <p class="hero-sub">
+                Ehrliches Handwerk mitten in Münster — vom schnellen Schnitt bis zur
+                Balayage. Komm vorbei oder sichere dir deinen Wunschtermin.
+              </p>
+              <div class="hero-actions">
+                <button class="btn btn-light" data-book>Termin buchen</button>
+                <a class="btn btn-ghost" href="#preise">Preise ansehen</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-strip">
+          <span>Walk-ins willkommen</span>
+          <span>Damen · Herren · Kinder</span>
+          <span>Color &amp; Balayage</span>
+          <span>Beauty &amp; Faden</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SERVICES ============================ -->
+    <section class="section services" id="leistungen">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Leistungen</div>
+          <h2 class="section-title">Alles fürs Haar — und mehr</h2>
+          <p>Vier Bereiche, ein Anspruch: sauberes Handwerk zu fairen Preisen.
+             Jeder Service lässt sich kombinieren.</p>
+        </div>
+        <div class="svc-grid">
+
+          <article class="svc-card reveal" data-book>
+            <div class="media"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&h=900&q=80" alt="Damen mit langem Haar"></div>
+            <div class="svc-body">
+              <h3>Damen</h3>
+              <p>Schnitt, Föhnen, Hochsteckfrisuren — abgestimmt auf Haarlänge und Typ.</p>
+              <span class="svc-price">ab 23 €</span>
+              <span class="link-underline">Buchen</span>
+            </div>
+          </article>
+
+          <article class="svc-card reveal" data-book>
+            <div class="media"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=700&h=900&q=80" alt="Herren-Haarschnitt"></div>
+            <div class="svc-body">
+              <h3>Herren</h3>
+              <p>Schneiden, Stylen, Maschinenschnitt und klassische Bartrasur.</p>
+              <span class="svc-price">ab 20 €</span>
+              <span class="link-underline">Buchen</span>
+            </div>
+          </article>
+
+          <article class="svc-card reveal" data-book>
+            <div class="media"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=700&h=900&q=80" alt="Farb-Folien beim Färben"></div>
+            <div class="svc-body">
+              <h3>Color</h3>
+              <p>Färben, Foliensträhnen, Balayage, Glossing und Keratin-Glättung.</p>
+              <span class="svc-price">ab 40 €</span>
+              <span class="link-underline">Buchen</span>
+            </div>
+          </article>
+
+          <article class="svc-card reveal" data-book>
+            <div class="media"><img src="https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?auto=format&fit=crop&w=700&h=900&q=80" alt="Augenbrauen und Beauty"></div>
+            <div class="svc-body">
+              <h3>Beauty</h3>
+              <p>Augenbrauen, Faden-Haarentfernung, Wimpern färben und mehr.</p>
+              <span class="svc-price">ab 5 €</span>
+              <span class="link-underline">Buchen</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ STUDIO ============================ -->
+    <section class="section studio" id="studio">
+      <div class="wrap">
+        <div class="studio-grid">
+          <div class="studio-media reveal">
+            <div class="media"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&h=1100&q=80" alt="Salon-Innenraum"></div>
+            <div class="badge"><b>15+</b><small>Jahre Münster</small></div>
+          </div>
+          <div class="studio-copy reveal">
+            <div class="eyebrow">Das Studio</div>
+            <h2>Klein, ehrlich,<br>mittendrin.</h2>
+            <p>
+              SIDE ist dein Nachbarschafts-Haarstudio in Münster: unkompliziert,
+              herzlich und ohne Schnickschnack. Bei uns zählt, dass du dich wohlfühlst
+              und mit einem guten Schnitt rausgehst — ob spontan ohne Termin oder
+              entspannt geplant.
+            </p>
+            <div class="studio-stats">
+              <div><b>4</b><span>Stylist:innen</span></div>
+              <div><b>6</b><span>Tage / Woche</span></div>
+              <div><b>★ 4.9</b><span>Bewertung</span></div>
+            </div>
+            <a class="link-underline" href="#kontakt">Besuch uns</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PORTFOLIO ============================ -->
+    <section class="section portfolio" id="portfolio">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Portfolio</div>
+          <h2 class="section-title">Arbeiten aus dem Studio</h2>
+          <p>Eine kleine Auswahl. Tippe auf ein Bild für die große Ansicht.</p>
+        </div>
+        <div class="pf-grid" id="pfGrid"><!-- populated by app.js --></div>
+      </div>
+    </section>
+
+    <!-- ============================ PRICES ============================ -->
+    <section class="section prices" id="preise">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Preisliste</div>
+          <h2 class="section-title">Transparent &amp; fair</h2>
+          <p>Alle Preise inkl. MwSt. Endpreis je nach Haarlänge und Aufwand.</p>
+        </div>
+        <div class="price-tabs reveal" id="priceTabs"><!-- populated by app.js --></div>
+        <div class="price-panel" id="pricePanel"><!-- populated by app.js --></div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="section contact" id="kontakt">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="eyebrow">Kontakt</div>
+            <h2>Komm vorbei.</h2>
+            <p class="contact-lede">
+              Mit oder ohne Termin — schreib uns eine Mail oder ruf einfach kurz an.
+              Wir freuen uns auf dich.
+            </p>
+            <div class="contact-actions">
+              <button class="btn btn-solid" data-book>Termin buchen</button>
+              <a class="btn btn-line" href="tel:+4925100000000">Anrufen</a>
+              <a class="btn btn-line" href="mailto:hallo@side-muenster.de">E-Mail</a>
+            </div>
+            <div class="contact-map" style="margin-top:34px">
+              <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1200&h=800&q=80" alt="Standort-Karte Münster">
+            </div>
+          </div>
+          <div class="info-list reveal">
+            <div class="info-item">
+              <span class="k">Adresse</span>
+              <span class="v"><b>SIDE Haarstudio</b><br>Musterstraße 00 · 48143 Münster</span>
+            </div>
+            <div class="info-item">
+              <span class="k">Telefon &amp; Mail</span>
+              <span class="v">0251 · 000 000<br>hallo@side-muenster.de</span>
+            </div>
+            <div class="info-item">
+              <span class="k">Öffnungszeiten</span>
+              <span class="v" style="width:100%">
+                <span class="hours-row"><span class="day">Mo – Fr</span><span>09:00 – 18:30</span></span>
+                <span class="hours-row"><span class="day">Samstag</span><span>09:00 – 16:00</span></span>
+                <span class="hours-row"><span class="day">Sonntag</span><span>geschlossen</span></span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-name" style="font-size:1.7rem">SIDE</span>
+      <div class="footer-links">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#studio">Studio</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#preise">Preise</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <div class="footer-fine">© <span id="year"></span> SIDE Haarstudio Münster</div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- booking modal + lightbox get mounted here by app.js -->
+<div id="booking-root"></div>
+<div id="lightbox-root"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
