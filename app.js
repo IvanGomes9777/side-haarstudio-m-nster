@@ -58,6 +58,107 @@
   }
   observeReveals(document);
 
+  /* ---------- number counters (animate on first view) ---------- */
+  function animateCounter(el) {
+    if (el._counted) return;
+    el._counted = true;
+    var raw = el.getAttribute("data-counter");
+    var target = parseFloat(raw);
+    if (!isFinite(target)) return;
+    var decimals = (raw.split(".")[1] || "").length;
+    var suffix = el.getAttribute("data-counter-suffix") || "";
+    var dur = 1200, t0 = performance.now();
+    function tick(t) {
+      var p = Math.min(1, (t - t0) / dur);
+      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      var v = (target * eased).toFixed(decimals).replace(".", ",");
+      el.textContent = v + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  (function () {
+    var counters = document.querySelectorAll("[data-counter]");
+    if (!counters.length) return;
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { animateCounter(e.target); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (c) { io.observe(c); });
+  })();
+
+  /* ---------- opening hours: live "open / closed" status in Europe/Berlin ---------- */
+  function berlinNow() {
+    var parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Europe/Berlin", weekday: "short",
+      hour: "2-digit", minute: "2-digit", hour12: false
+    }).formatToParts(new Date());
+    var get = function (t) { return parts.find(function (p) { return p.type === t; }).value; };
+    var dayMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    var h = parseInt(get("hour"), 10) % 24;
+    return { day: dayMap[get("weekday")], min: h * 60 + parseInt(get("minute"), 10) };
+  }
+  function fmtMin(m) {
+    return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+  }
+  function computeStatus(now) {
+    var today = HOURS_SCHEDULE[now.day];
+    if (today.open != null && now.min >= today.open && now.min < today.close) {
+      return { open: true, label: "Jetzt geöffnet · bis " + fmtMin(today.close) };
+    }
+    for (var i = 0; i < 7; i++) {
+      var d = (now.day + i) % 7;
+      var h = HOURS_SCHEDULE[d];
+      if (h.open == null) continue;
+      if (i === 0 && now.min < h.open) {
+        return { open: false, label: "Geschlossen · öffnet heute " + fmtMin(h.open) };
+      }
+      if (i > 0) {
+        var when = i === 1 ? "morgen" : h.label;
+        return { open: false, label: "Geschlossen · öffnet " + when + " " + fmtMin(h.open) };
+      }
+    }
+    return { open: false, label: "Geschlossen" };
+  }
+  function renderHours() {
+    var listEl = document.getElementById("hoursList");
+    var pillEl = document.getElementById("statusPill");
+    if (!listEl || !pillEl) return;
+    var now = berlinNow();
+    var order = [1, 2, 3, 4, 5, 6, 0]; // Mo–So
+    listEl.innerHTML = order.map(function (i) {
+      var h = HOURS_SCHEDULE[i];
+      var text = h.open == null ? "geschlossen" : fmtMin(h.open) + " – " + fmtMin(h.close);
+      var cls = "hours-row" + (i === now.day ? " today" : "");
+      return '<span class="' + cls + '"><span class="day">' + h.label + "</span><span>" + text + "</span></span>";
+    }).join("");
+    var s = computeStatus(now);
+    pillEl.className = "status-pill " + (s.open ? "open" : "closed");
+    pillEl.textContent = s.label;
+  }
+  renderHours();
+  setInterval(renderHours, 60 * 1000); // refresh once a minute so status stays current
+
+  /* ---------- reviews (Google) ---------- */
+  (function () {
+    var grid = document.getElementById("rvGrid");
+    if (!grid) return;
+    grid.innerHTML = REVIEWS.map(function (r, i) {
+      var initial = (r.name.charAt(0) || "?").toUpperCase();
+      var stars = "★★★★★".slice(0, Math.max(0, Math.min(5, r.stars || 5)));
+      return '<article class="rv-card reveal" style="transition-delay:' + (i * 90) + 'ms">' +
+        '<div class="rv-card-head">' +
+          '<div class="rv-avatar" aria-hidden="true">' + initial + "</div>" +
+          "<div><div class=\"rv-name\">" + r.name + "</div>" +
+          '<div class="rv-stars-row" aria-label="' + r.stars + " von 5 Sternen\">" + stars + "</div></div>" +
+        "</div>" +
+        '<p class="rv-quote">„' + r.quote + "“</p>" +
+        "</article>";
+    }).join("");
+    observeReveals(grid);
+  })();
+
   /* ---------- portfolio + lightbox ---------- */
   var pfGrid = document.getElementById("pfGrid");
   if (pfGrid) {
