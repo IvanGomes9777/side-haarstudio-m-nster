@@ -258,7 +258,7 @@
 
   /* ======================= BOOKING MODAL ======================= */
   var bkRoot = document.getElementById("booking-root");
-  var TIMES = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "18:00"];
+  var TIMES = ["09:00", "10:30", "12:00", "13:30", "15:00", "16:30", "17:30"];
   var WD = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
   var MO = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
   var STEPS = ["Leistung", "Termin", "Kontakt", "Fertig"];
@@ -288,7 +288,8 @@
   function openBooking(preset) {
     bk = { step: 0, svc: preset || null, day: null, time: null, form: { name: "", email: "", phone: "", note: "" } };
     document.body.style.overflow = "hidden";
-    renderBooking();
+    mountBooking();
+    renderStep();
   }
   function closeBooking() {
     bk = null;
@@ -302,7 +303,7 @@
     if (bk.step === 2) return !!(bk.form.name.trim() && isEmail(bk.form.email));
     return true;
   }
-  function go(d) { bk.step = Math.min(STEPS.length - 1, Math.max(0, bk.step + d)); renderBooking(); }
+  function go(d) { bk.step = Math.min(STEPS.length - 1, Math.max(0, bk.step + d)); renderStep(); }
 
   function submitBooking() {
     var f = bk.form;
@@ -323,7 +324,7 @@
     window.location.href = "mailto:" + BOOKING_EMAIL +
       "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines);
     bk.step = 3;
-    renderBooking();
+    renderStep();
   }
 
   function paneHtml() {
@@ -370,64 +371,93 @@
       "</div></div>";
   }
 
-  function renderBooking() {
-    if (!bk) return;
-    var stepsHtml = bk.step < 3 ? '<div class="bk-steps">' + STEPS.slice(0, 3).map(function (s, i) {
-      return '<div class="bk-step' + (i === bk.step ? " active" : "") + (i < bk.step ? " done" : "") + '"><i>' +
-        (i < bk.step ? "✓" : i + 1) + "</i><span>" + s + "</span></div>";
-    }).join("") + "</div>" : "";
+  // The overlay + modal shell is built ONCE per open; only the steps, body
+  // and footer are repainted on navigation. Selecting a chip/day/time just
+  // toggles classes in place — so the modal never re-mounts and never
+  // "jumps"/replays its open animation on each click.
+  function mountBooking() {
+    bkRoot.innerHTML =
+      '<div class="bk-overlay"><div class="bk-modal"><button class="bk-close" aria-label="Schließen">✕</button>' +
+      '<div class="bk-head"><div class="bk-eyebrow">Terminanfrage</div><div class="bk-title">SIDE Haarstudio Münster</div>' +
+      '<div class="bk-steps" id="bkSteps"></div></div>' +
+      '<div class="bk-body" id="bkBody"></div>' +
+      '<div class="bk-foot" id="bkFoot"></div>' +
+      "</div></div>";
+    bkRoot.querySelector(".bk-overlay").addEventListener("click", closeBooking);
+    bkRoot.querySelector(".bk-modal").addEventListener("click", function (e) { e.stopPropagation(); });
+    bkRoot.querySelector(".bk-close").addEventListener("click", closeBooking);
+  }
 
+  function footHtml() {
     var foot = "";
     if (bk.step > 0 && bk.step < 3) foot += '<button class="btn btn-ghost bk-back" data-act="back">Zurück</button>';
     if (bk.step < 2) foot += '<button class="btn btn-solid" data-act="next"' + (canNext() ? "" : " disabled") + ">Weiter</button>";
     if (bk.step === 2) foot += '<button class="btn btn-solid" data-act="submit"' + (canNext() ? "" : " disabled") + ">Anfrage senden</button>";
     if (bk.step === 3) foot += '<button class="btn btn-solid" data-act="close">Schließen</button>';
-
-    bkRoot.innerHTML =
-      '<div class="bk-overlay"><div class="bk-modal"><button class="bk-close" aria-label="Schließen">✕</button>' +
-      '<div class="bk-head"><div class="bk-eyebrow">Terminanfrage</div><div class="bk-title">SIDE Haarstudio Münster</div>' +
-      stepsHtml + "</div>" +
-      '<div class="bk-body">' + paneHtml() + "</div>" +
-      '<div class="bk-foot">' + foot + "</div></div></div>";
-
-    wireBooking();
+    return foot;
   }
 
-  function wireBooking() {
-    var overlay = bkRoot.querySelector(".bk-overlay");
-    overlay.addEventListener("click", closeBooking);
-    bkRoot.querySelector(".bk-modal").addEventListener("click", function (e) { e.stopPropagation(); });
-    bkRoot.querySelector(".bk-close").addEventListener("click", closeBooking);
+  function refreshFoot() {
+    var btn = bkRoot.querySelector('[data-act="submit"], [data-act="next"]');
+    if (btn) btn.disabled = !canNext();
+  }
 
+  function renderStep() {
+    if (!bk) return;
+    var stepsEl = document.getElementById("bkSteps");
+    stepsEl.style.display = bk.step < 3 ? "" : "none";
+    stepsEl.innerHTML = bk.step < 3 ? STEPS.slice(0, 3).map(function (s, i) {
+      return '<div class="bk-step' + (i === bk.step ? " active" : "") + (i < bk.step ? " done" : "") + '"><i>' +
+        (i < bk.step ? "✓" : i + 1) + "</i><span>" + s + "</span></div>";
+    }).join("") : "";
+    document.getElementById("bkBody").innerHTML = paneHtml();
+    document.getElementById("bkFoot").innerHTML = footHtml();
+    wireStep();
+  }
+
+  function wireStep() {
     bkRoot.querySelectorAll("[data-svc]").forEach(function (b) {
-      b.addEventListener("click", function () { bk.svc = b.getAttribute("data-svc"); renderBooking(); });
+      b.onclick = function () {
+        bk.svc = b.getAttribute("data-svc");
+        bkRoot.querySelectorAll("[data-svc]").forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        refreshFoot();
+      };
     });
     bkRoot.querySelectorAll("[data-day]").forEach(function (b) {
       if (b.disabled) return;
-      b.addEventListener("click", function () { bk.day = b.getAttribute("data-day"); renderBooking(); });
+      b.onclick = function () {
+        bk.day = b.getAttribute("data-day");
+        bkRoot.querySelectorAll("[data-day]").forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        // a day is now chosen → the time buttons become selectable
+        bkRoot.querySelectorAll("[data-time]").forEach(function (t) { t.disabled = false; });
+        refreshFoot();
+      };
     });
     bkRoot.querySelectorAll("[data-time]").forEach(function (b) {
-      if (b.disabled) return;
-      b.addEventListener("click", function () { bk.time = b.getAttribute("data-time"); renderBooking(); });
+      b.onclick = function () {
+        if (b.disabled) return;
+        bk.time = b.getAttribute("data-time");
+        bkRoot.querySelectorAll("[data-time]").forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        refreshFoot();
+      };
     });
     bkRoot.querySelectorAll("[data-f]").forEach(function (input) {
       input.addEventListener("input", function () {
-        var key = input.getAttribute("data-f");
-        bk.form[key] = input.value;
-        // live-toggle the footer button without re-rendering (keeps focus)
-        var btn = bkRoot.querySelector('[data-act="submit"], [data-act="next"]');
-        if (btn) btn.disabled = !canNext();
+        bk.form[input.getAttribute("data-f")] = input.value;
+        refreshFoot();
       });
     });
-
     bkRoot.querySelectorAll("[data-act]").forEach(function (b) {
-      b.addEventListener("click", function () {
+      b.onclick = function () {
         var a = b.getAttribute("data-act");
         if (a === "back") go(-1);
         else if (a === "next") go(1);
         else if (a === "submit") submitBooking();
         else if (a === "close") closeBooking();
-      });
+      };
     });
   }
 
@@ -443,4 +473,40 @@
       openBooking();
     }
   });
+
+  /* ---------- Google Maps: load only on explicit click (DSGVO) ---------- */
+  (function () {
+    var box = document.getElementById("mapBox");
+    var btn = document.getElementById("mapLoad");
+    if (!box || !btn) return;
+    btn.addEventListener("click", function () {
+      if (box.querySelector("iframe")) return;
+      var ifr = document.createElement("iframe");
+      ifr.src = "https://www.google.com/maps?q=" +
+        encodeURIComponent("Side Haarstudio, Aegidiistraße 17, 48143 Münster") + "&output=embed";
+      ifr.title = "Standort Side Haarstudio auf Google Maps";
+      ifr.loading = "lazy";
+      ifr.referrerPolicy = "no-referrer-when-downgrade";
+      ifr.setAttribute("allowfullscreen", "");
+      box.insertBefore(ifr, box.firstChild);
+      btn.remove();
+    });
+  })();
+
+  /* ---------- cookie / consent notice ---------- */
+  (function () {
+    var banner = document.getElementById("cookieBanner");
+    if (!banner) return;
+    var KEY = "side-consent", stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    if (!stored) banner.hidden = false;
+    function set(v) {
+      try { localStorage.setItem(KEY, v); } catch (e) {}
+      banner.hidden = true;
+    }
+    var a = document.getElementById("cookieAccept");
+    var d = document.getElementById("cookieDecline");
+    if (a) a.addEventListener("click", function () { set("acknowledged"); });
+    if (d) d.addEventListener("click", function () { set("necessary"); });
+  })();
 })();
