@@ -176,7 +176,7 @@ img{ display:block; max-width:100%; }
   position:relative; width:100%; aspect-ratio:16/13; border-radius:var(--r-lg); overflow:hidden;
   background:#3b2c22;
   max-height:calc(100svh - 200px);
-  min-height:320px;
+  min-height:360px;
 }
 .hero[data-layout="image"] .hero-media::after{
   content:""; position:absolute; inset:0; z-index:1;
@@ -204,6 +204,24 @@ img{ display:block; max-width:100%; }
 .hero-strip{ display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:26px; align-items:center; justify-content:flex-start; }
 .hero-strip span{ font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:9px; }
 .hero-strip span::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--accent); }
+
+/* On short viewports the hero image is cropped via max-height, which would
+   clip the overlay copy (overflow:hidden). Scale the copy down step by step
+   so the eyebrow, headline and CTAs always stay visible. */
+@media (max-height: 720px){
+  .hero[data-layout="image"] .hero-copy{ padding:clamp(18px, 3.5cqi, 36px); }
+  .hero[data-layout="image"] .hero h1{ font-size:clamp(1.7rem, 5.5cqi, 2.7rem); line-height:1.05; }
+  .hero[data-layout="image"] .hero .hero-sub{ font-size:.94rem; line-height:1.5; margin-top:.9em; max-width:42ch; }
+  .hero[data-layout="image"] .hero-actions{ margin-top:1.1em; gap:10px; }
+}
+@media (max-height: 560px){
+  .hero[data-layout="image"] .hero-copy{ padding:14px 20px; }
+  .hero[data-layout="image"] .hero .eyebrow{ font-size:10px; letter-spacing:.28em; }
+  .hero[data-layout="image"] .hero h1{ font-size:clamp(1.4rem, 5cqi, 1.9rem); margin:.2em 0 0; }
+  .hero[data-layout="image"] .hero .hero-sub{ display:none; }
+  .hero[data-layout="image"] .hero-actions{ margin-top:.8em; }
+  .hero[data-layout="image"] .hero-actions .btn{ padding:.7em 1.2em; font-size:.74rem; }
+}
 
 /* ============================================================
    SERVICES
