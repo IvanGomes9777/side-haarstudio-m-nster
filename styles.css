@@ -167,10 +167,16 @@ img{ display:block; max-width:100%; }
 .hero{ padding:calc(14px*var(--space)) 0 calc(56px*var(--space)); }
 .hero-stage{ position:relative; }
 
-/* Variant: image (full-bleed image w/ overlay text) — DEFAULT */
+/* Variant: image (full-bleed image w/ overlay text) — DEFAULT.
+   max-height caps the hero so the whole section (header + image + strip)
+   fits the first viewport — no scrolling needed to see the CTA.
+   200px buffer covers the sticky header (~72px), the trust strip and
+   the section padding. min-height keeps it usable on very short windows. */
 .hero[data-layout="image"] .hero-media{
   position:relative; width:100%; aspect-ratio:16/13; border-radius:var(--r-lg); overflow:hidden;
   background:#3b2c22;
+  max-height:calc(100svh - 200px);
+  min-height:320px;
 }
 .hero[data-layout="image"] .hero-media::after{
   content:""; position:absolute; inset:0; z-index:1;
