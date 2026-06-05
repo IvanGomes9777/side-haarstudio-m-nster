@@ -508,5 +508,13 @@
     var d = document.getElementById("cookieDecline");
     if (a) a.addEventListener("click", function () { set("acknowledged"); });
     if (d) d.addEventListener("click", function () { set("necessary"); });
+
+    // Footer link: reset the stored choice and show the notice again.
+    var reopen = document.getElementById("cookieReopen");
+    if (reopen) reopen.addEventListener("click", function () {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      banner.hidden = false;
+      banner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
   })();
 })();
