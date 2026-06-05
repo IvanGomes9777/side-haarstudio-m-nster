@@ -5,9 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIDE Haarstudio Münster — Friseur mit oder ohne Termin</title>
 <meta name="description" content="SIDE Haarstudio Münster — ehrliches Friseurhandwerk mitten in Münster. Damen, Herren, Kinder, Color & Balayage, Beauty & Faden. Mit oder ohne Termin.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<!-- Schriften via Bunny Fonts (DSGVO-konform, EU, kein Tracking / keine IP-Protokollierung – Google-Fonts-Ersatz) -->
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=cormorant-garamond:400,500,600,700|jost:300,400,500,600">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="booking.css">
 </head>
@@ -147,132 +149,11 @@
               entspannt geplant.
             </p>
             <div class="studio-stats">
-              <div><b><span data-counter="4">4</span></b><span>Stylist:innen</span></div>
-              <div><b><span data-counter="6">6</span></b><span>Tage / Woche</span></div>
-              <div><b>★ <span data-counter="4.2">4,2</span></b><span>Bewertung</span></div>
-            </div>
-            <a class="link-underline" href="#kontakt">Besuch uns</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ REVIEWS ============================ -->
-    <section class="section reviews" id="rezensionen">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">Google-Rezensionen</div>
-          <h2 class="section-title">Was unsere Gäste sagen</h2>
-          <div class="rv-summary">
-            <span class="rv-score"><span data-counter="4.2">4,2</span></span>
-            <span class="rv-stars" aria-label="4,2 von 5 Sternen">
-              <span class="rv-stars-bg">★★★★★</span>
-              <span class="rv-stars-fg" style="--fill:84%">★★★★★</span>
-            </span>
-            <span class="rv-count"><span data-counter="48">48</span> Rezensionen auf Google</span>
-          </div>
-        </div>
-        <div class="rv-grid" id="rvGrid"><!-- populated by app.js --></div>
-        <div class="rv-cta reveal">
-          <a class="link-underline" href="https://www.google.com/search?q=Side+Haarstudio+M%C3%BCnster+Bewertungen" target="_blank" rel="noopener">Alle Rezensionen ansehen</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ PORTFOLIO ============================ -->
-    <section class="section portfolio" id="portfolio">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">Portfolio</div>
-          <h2 class="section-title">Arbeiten aus dem Studio</h2>
-          <p>Eine kleine Auswahl. Tippe auf ein Bild für die große Ansicht.</p>
-        </div>
-        <div class="pf-grid" id="pfGrid"><!-- populated by app.js --></div>
-      </div>
-    </section>
-
-    <!-- ============================ PRICES ============================ -->
-    <section class="section prices" id="preise">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="eyebrow">Preisliste</div>
-          <h2 class="section-title">Transparent &amp; fair</h2>
-          <p>Alle Preise inkl. MwSt. Endpreis je nach Haarlänge und Aufwand.</p>
-        </div>
-        <div class="price-tabs reveal" id="priceTabs"><!-- populated by app.js --></div>
-        <div class="price-panel" id="pricePanel"><!-- populated by app.js --></div>
-      </div>
-    </section>
-
-    <!-- ============================ CONTACT ============================ -->
-    <section class="section contact" id="kontakt">
-      <div class="wrap">
-        <div class="contact-grid">
-          <div class="reveal">
-            <div class="eyebrow">Kontakt</div>
-            <h2>Komm vorbei.</h2>
-            <p class="contact-lede">
-              Mit oder ohne Termin — schreib uns eine Mail oder ruf einfach kurz an.
-              Wir freuen uns auf dich.
-            </p>
-            <div class="contact-actions">
-              <button class="btn btn-solid" data-book>Termin buchen</button>
-              <a class="btn btn-line" href="tel:+4925142554">Anrufen</a>
-              <a class="btn btn-line" href="mailto:ivanvilargomes@gmail.com">E-Mail</a>
-            </div>
-            <div class="contact-map" style="margin-top:34px">
-              <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1200&h=800&q=80" alt="Standort-Karte Münster">
-            </div>
-          </div>
-          <div class="info-list reveal">
-            <div class="info-item">
-              <span class="k">Adresse</span>
-              <span class="v"><b>Side Haarstudio</b><br>Aegidiistraße 17 · 48143 Münster</span>
-            </div>
-            <div class="info-item">
-              <span class="k">Telefon</span>
-              <span class="v"><a href="tel:+4925142554">0251 42554</a></span>
-            </div>
-            <div class="info-item">
-              <span class="k">E-Mail</span>
-              <span class="v"><a href="mailto:ivanvilargomes@gmail.com">ivanvilargomes@gmail.com</a></span>
-            </div>
-            <div class="info-item">
-              <div class="hours-head">
-                <span class="k">Öffnungszeiten</span>
-                <span class="status-pill" id="statusPill" aria-live="polite">…</span>
-              </div>
-              <div class="hours-list" id="hoursList"><!-- populated by app.js --></div>
+              <div><b><span data-counter="15" data-counter-suffix="+">15+</span></b><small>Jahre Münster</small></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-  </main>
-
-  <!-- ============================ FOOTER ============================ -->
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span class="brand-name" style="font-size:1.7rem">SIDE</span>
-      <div class="footer-links">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#studio">Studio</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#preise">Preise</a>
-        <a href="#kontakt">Kontakt</a>
-      </div>
-      <div class="footer-fine">© <span id="year"></span> SIDE Haarstudio Münster</div>
-    </div>
-  </footer>
-
-</div>
-
-<!-- booking modal + lightbox get mounted here by app.js -->
-<div id="booking-root"></div>
-<div id="lightbox-root"></div>
-
-<script src="data.js"></script>
-<script src="app.js"></script>
-</body>
-</html>
+PLACEHOLDER_INVALID
