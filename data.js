@@ -111,5 +111,27 @@ const BOOK_SERVICES = [
   "Kinderschnitt",
 ];
 
-/* recipient for the booking request mail */
-const BOOKING_EMAIL = "hallo@side-muenster.de";
+/* recipient for the booking request mail (temporary — replace once the salon's
+   own address is set up). */
+const BOOKING_EMAIL = "ivanvilargomes@gmail.com";
+
+/* Opening hours — indexed by JS getDay() (0 = Sunday … 6 = Saturday).
+   Minutes since midnight (Europe/Berlin local time). */
+const HOURS_SCHEDULE = [
+  { label: "Sonntag",    open: null, close: null }, // 0
+  { label: "Montag",     open:  540, close: 1140 }, // 1  09:00–19:00
+  { label: "Dienstag",   open:  540, close: 1080 }, // 2  09:00–18:00
+  { label: "Mittwoch",   open:  540, close: 1080 }, // 3  09:00–18:00
+  { label: "Donnerstag", open:  540, close: 1080 }, // 4  09:00–18:00
+  { label: "Freitag",    open:  540, close: 1140 }, // 5  09:00–19:00
+  { label: "Samstag",    open:  540, close:  960 }, // 6  09:00–16:00
+];
+
+/* Google reviews — handpicked excerpts (Stand: Salon-Profil bei Google). */
+const GOOGLE_RATING = 4.2;
+const GOOGLE_REVIEW_COUNT = 48;
+const REVIEWS = [
+  { name: "Valerie Martinez", stars: 5, quote: "Gute Beratung und sehr gute Umsetzung meiner Wunschfrisur." },
+  { name: "S H",              stars: 5, quote: "Sehr nett, guter Schnitt, preislich sehr fair." },
+  { name: "Gunda",            stars: 5, quote: "Freundliche und schnelle Bedienung." },
+];
