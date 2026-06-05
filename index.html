@@ -149,11 +149,154 @@
               entspannt geplant.
             </p>
             <div class="studio-stats">
-              <div><b><span data-counter="15" data-counter-suffix="+">15+</span></b><small>Jahre Münster</small></div>
+              <div><b><span data-counter="4">4</span></b><span>Stylist:innen</span></div>
+              <div><b><span data-counter="6">6</span></b><span>Tage / Woche</span></div>
+              <div><b>★ <span data-counter="4.2">4,2</span></b><span>Bewertung</span></div>
+            </div>
+            <a class="link-underline" href="#kontakt">Besuch uns</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ REVIEWS ============================ -->
+    <section class="section reviews" id="rezensionen">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Google-Rezensionen</div>
+          <h2 class="section-title">Was unsere Gäste sagen</h2>
+          <div class="rv-summary">
+            <span class="rv-score"><span data-counter="4.2">4,2</span></span>
+            <span class="rv-stars" aria-label="4,2 von 5 Sternen">
+              <span class="rv-stars-bg">★★★★★</span>
+              <span class="rv-stars-fg" style="--fill:84%">★★★★★</span>
+            </span>
+            <span class="rv-count"><span data-counter="48">48</span> Rezensionen auf Google</span>
+          </div>
+        </div>
+        <div class="rv-grid" id="rvGrid"><!-- populated by app.js --></div>
+        <div class="rv-cta reveal">
+          <a class="link-underline" href="https://www.google.com/search?q=Side+Haarstudio+M%C3%BCnster+Bewertungen" target="_blank" rel="noopener">Alle Rezensionen ansehen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PORTFOLIO ============================ -->
+    <section class="section portfolio" id="portfolio">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Portfolio</div>
+          <h2 class="section-title">Arbeiten aus dem Studio</h2>
+          <p>Eine kleine Auswahl. Tippe auf ein Bild für die große Ansicht.</p>
+        </div>
+        <div class="pf-grid" id="pfGrid"><!-- populated by app.js --></div>
+      </div>
+    </section>
+
+    <!-- ============================ PRICES ============================ -->
+    <section class="section prices" id="preise">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="eyebrow">Preisliste</div>
+          <h2 class="section-title">Transparent &amp; fair</h2>
+          <p>Alle Preise inkl. MwSt. Endpreis je nach Haarlänge und Aufwand.</p>
+        </div>
+        <div class="price-tabs reveal" id="priceTabs"><!-- populated by app.js --></div>
+        <div class="price-panel" id="pricePanel"><!-- populated by app.js --></div>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="section contact" id="kontakt">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div class="reveal">
+            <div class="eyebrow">Kontakt</div>
+            <h2>Komm vorbei.</h2>
+            <p class="contact-lede">
+              Mit oder ohne Termin — schreib uns eine Mail oder ruf einfach kurz an.
+              Wir freuen uns auf dich.
+            </p>
+            <div class="contact-actions">
+              <button class="btn btn-solid" data-book>Termin buchen</button>
+              <a class="btn btn-line" href="tel:+4925142554">Anrufen</a>
+              <a class="btn btn-line" href="mailto:ivanvilargomes@gmail.com">E-Mail</a>
+            </div>
+            <div class="contact-map" id="mapBox" style="margin-top:34px">
+              <button type="button" class="map-load" id="mapLoad" aria-label="Google Maps laden">
+                <span class="map-pin" aria-hidden="true">📍</span>
+                <span class="map-load-title">Aegidiistraße 17 · 48143 Münster</span>
+                <span class="map-load-hint">Karte laden (Google&nbsp;Maps)</span>
+              </button>
+              <a class="map-open" href="https://www.google.com/maps/search/?api=1&query=Side+Haarstudio+Aegidiistra%C3%9Fe+17+48143+M%C3%BCnster" target="_blank" rel="noopener">In Google Maps öffnen ↗</a>
+            </div>
+          </div>
+          <div class="info-list reveal">
+            <div class="info-item">
+              <span class="k">Adresse</span>
+              <span class="v"><b>Side Haarstudio</b><br>Aegidiistraße 17 · 48143 Münster</span>
+            </div>
+            <div class="info-item">
+              <span class="k">Telefon</span>
+              <span class="v"><a href="tel:+4925142554">0251 42554</a></span>
+            </div>
+            <div class="info-item">
+              <span class="k">E-Mail</span>
+              <span class="v"><a href="mailto:ivanvilargomes@gmail.com">ivanvilargomes@gmail.com</a></span>
+            </div>
+            <div class="info-item">
+              <div class="hours-head">
+                <span class="k">Öffnungszeiten</span>
+                <span class="status-pill" id="statusPill" aria-live="polite">…</span>
+              </div>
+              <div class="hours-list" id="hoursList"><!-- populated by app.js --></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-PLACEHOLDER_INVALID
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-name" style="font-size:1.7rem">SIDE</span>
+      <div class="footer-links">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#studio">Studio</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#preise">Preise</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+      <div class="footer-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+      <div class="footer-fine">© <span id="year"></span> Side Haarstudio Münster · Aegidiistraße 17 · 48143 Münster</div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- booking modal + lightbox get mounted here by app.js -->
+<div id="booking-root"></div>
+<div id="lightbox-root"></div>
+
+<!-- Cookie / Consent banner -->
+<div class="cookie-banner" id="cookieBanner" hidden>
+  <div class="cookie-inner">
+    <p>Diese Website verwendet nur technisch notwendige Mittel. Externe Karten (Google&nbsp;Maps) werden
+       erst nach deiner ausdrücklichen Zustimmung geladen. Mehr in der
+       <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-ghost" id="cookieDecline">Nur notwendige</button>
+      <button class="btn btn-solid" id="cookieAccept">Verstanden</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
