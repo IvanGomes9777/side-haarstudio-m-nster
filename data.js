@@ -3,12 +3,12 @@
 
 /* Portfolio gallery — caption + image + tall flag for masonry rhythm */
 const PORTFOLIO = [
-  { img: "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=700&h=1100&q=80", cap: "Soft Balayage",   tall: true },
-  { img: "https://images.unsplash.com/photo-1605980776566-0486c3ac7617?auto=format&fit=crop&w=700&h=700&q=80",  cap: "Curtain Bangs" },
-  { img: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=700&h=700&q=80",  cap: "Warm Blonde" },
-  { img: "https://images.unsplash.com/photo-1554519515-242161756769?auto=format&fit=crop&w=700&h=700&q=80",     cap: "Sleek Bob" },
-  { img: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=700&h=1100&q=80", cap: "Beach Waves",     tall: true },
-  { img: "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?auto=format&fit=crop&w=700&h=700&q=80",  cap: "Natural Brunette" },
+  { img: "images/portfolio-balayage.jpg",       cap: "Soft Balayage",   tall: true },
+  { img: "images/portfolio-curtain-bangs.jpg",  cap: "Curtain Bangs" },
+  { img: "images/portfolio-warm-blonde.jpg",    cap: "Warm Blonde" },
+  { img: "images/portfolio-sleek-bob.jpg",      cap: "Sleek Bob" },
+  { img: "images/portfolio-beach-waves.jpg",    cap: "Beach Waves",     tall: true },
+  { img: "images/portfolio-natural-brunette.jpg", cap: "Natural Brunette" },
 ];
 
 /* PRICE LIST — exact from salon board.
@@ -113,7 +113,7 @@ const BOOK_SERVICES = [
 
 /* recipient for the booking request mail (temporary — replace once the salon's
    own address is set up). */
-const BOOKING_EMAIL = "ivanvilargomes@gmail.com";
+const BOOKING_EMAIL = "info@side-haarstudio-muenster.de";
 
 /* Opening hours — indexed by JS getDay() (0 = Sunday … 6 = Saturday).
    Minutes since midnight (Europe/Berlin local time). */
