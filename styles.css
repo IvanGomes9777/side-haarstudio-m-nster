@@ -630,6 +630,32 @@ img{ display:block; max-width:100%; }
 .cookie-banner .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,.08); }
 
 /* ============================================================
+   WHATSAPP FLOATING BUTTON (unten links)
+   ============================================================ */
+.whatsapp-fab{
+  position:fixed; left:24px; bottom:24px; z-index:300;
+  display:flex; align-items:center; justify-content:center;
+  width:58px; height:58px; border-radius:50%;
+  background:#25D366; color:#fff;
+  box-shadow:0 6px 20px rgba(37,211,102,.45), 0 2px 6px rgba(0,0,0,.18);
+  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.whatsapp-fab:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 10px 28px rgba(37,211,102,.55), 0 4px 10px rgba(0,0,0,.2);
+}
+.whatsapp-fab:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+.whatsapp-fab svg{ display:block; }
+@media (max-width:640px){
+  .whatsapp-fab{ left:18px; bottom:18px; width:52px; height:52px; }
+  .whatsapp-fab svg{ width:27px; height:27px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .whatsapp-fab{ transition:none; }
+  .whatsapp-fab:hover{ transform:none; }
+}
+
+/* ============================================================
    LEGAL PAGES (Impressum / Datenschutz)
    ============================================================ */
 .legal-page{ background:var(--paper); min-height:100vh; }
