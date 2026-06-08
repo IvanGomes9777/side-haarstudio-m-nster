@@ -104,7 +104,7 @@ img{ display:block; max-width:100%; }
 /* media frames (plain imgs that fill their box) */
 .media{ position:relative; overflow:hidden; background:var(--sand); }
 .media img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.hero-media img, .contact-map img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+.hero-media img, .contact-map img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 40%; }
 
 /* ============================================================
    HEADER
@@ -173,15 +173,15 @@ img{ display:block; max-width:100%; }
    200px buffer covers the sticky header (~72px), the trust strip and
    the section padding. min-height keeps it usable on very short windows. */
 .hero[data-layout="image"] .hero-media{
-  position:relative; width:100%; aspect-ratio:16/13; border-radius:var(--r-lg); overflow:hidden;
+  position:relative; width:100%; aspect-ratio:16/9; border-radius:var(--r-lg); overflow:hidden;
   background:#3b2c22;
   max-height:calc(100svh - 200px);
   min-height:360px;
 }
 .hero[data-layout="image"] .hero-media::after{
   content:""; position:absolute; inset:0; z-index:1;
-  background:linear-gradient(90deg, rgba(53,40,32,.74) 0%, rgba(53,40,32,.36) 42%, rgba(53,40,32,.05) 70%),
-             linear-gradient(0deg, rgba(53,40,32,.5), rgba(53,40,32,0) 50%);
+  background:linear-gradient(90deg, rgba(53,40,32,.62) 0%, rgba(53,40,32,.26) 40%, rgba(53,40,32,0) 66%),
+             linear-gradient(0deg, rgba(53,40,32,.55), rgba(53,40,32,0) 45%);
 }
 .hero[data-layout="image"] .hero-copy{
   position:absolute; left:0; bottom:0; z-index:2;
@@ -234,7 +234,7 @@ img{ display:block; max-width:100%; }
   }
   .hero[data-layout="image"] .hero-media img{
     position:static; inset:auto; width:100%; height:auto;
-    aspect-ratio:4/3; object-fit:cover;
+    aspect-ratio:3/2; object-fit:cover;
     border-radius:var(--r-lg) var(--r-lg) 0 0;
   }
   .hero[data-layout="image"] .hero-media::after{ display:none; }
