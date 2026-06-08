@@ -111,9 +111,9 @@ const BOOK_SERVICES = [
   "Kinderschnitt",
 ];
 
-/* recipient for the booking request mail (temporary — replace once the salon's
-   own address is set up). */
-const BOOKING_EMAIL = "info@side-haarstudio-muenster.de";
+/* recipient for the booking request mail (placeholder — replace with the salon's
+   real address before go-live). */
+const BOOKING_EMAIL = "info@muster-haarstudio.de";
 
 /* Opening hours — indexed by JS getDay() (0 = Sunday … 6 = Saturday).
    Minutes since midnight (Europe/Berlin local time). */
@@ -127,11 +127,11 @@ const HOURS_SCHEDULE = [
   { label: "Samstag",    open:  540, close:  960 }, // 6  09:00–16:00
 ];
 
-/* Google reviews — handpicked excerpts (Stand: Salon-Profil bei Google). */
-const GOOGLE_RATING = 4.2;
-const GOOGLE_REVIEW_COUNT = 48;
+/* Google reviews — Beispieldaten (vor Go-Live durch echte Auszüge ersetzen). */
+const GOOGLE_RATING = 4.5;
+const GOOGLE_REVIEW_COUNT = 25;
 const REVIEWS = [
-  { name: "Valerie Martinez", stars: 5, quote: "Gute Beratung und sehr gute Umsetzung meiner Wunschfrisur." },
-  { name: "S H",              stars: 5, quote: "Sehr nett, guter Schnitt, preislich sehr fair." },
-  { name: "Gunda",            stars: 5, quote: "Freundliche und schnelle Bedienung." },
+  { name: "Anna B.",  stars: 5, quote: "Tolle Beratung und super Ergebnis." },
+  { name: "M. K.",    stars: 5, quote: "Freundlich, fair, sehr zu empfehlen." },
+  { name: "Lisa M.",  stars: 5, quote: "Schneller Termin, perfekter Schnitt." },
 ];

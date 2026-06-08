@@ -1,9 +1,16 @@
-# SIDE Haarstudio Münster
+# Muster Haarstudio (Demo / Vorlage)
 
-Website für das **SIDE Haarstudio Münster** — ein warmer, edler Friseur-Salon-Auftritt
-(Braun/Creme, Serifen-Headlines). Umgesetzt aus dem Claude-Design-Mockup als
-schlanke, **build-freie statische Website** (reines HTML/CSS/JS, keine Abhängigkeiten,
-kein Build-Schritt) — direkt deploybar, z. B. über GitHub Pages.
+Website-Template für einen Friseur-Salon — warmer, edler Auftritt
+(Braun/Creme, Serifen-Headlines). Umgesetzt als schlanke, **build-freie
+statische Website** (reines HTML/CSS/JS, keine Abhängigkeiten, kein
+Build-Schritt) — direkt deploybar, z. B. über Vercel oder GitHub Pages.
+
+> **Hinweis:** Alle Unternehmensdaten (Name, Adresse, Telefon, E-Mail,
+> Domain, WhatsApp, Bewertungen) sind aktuell **Beispieldaten**
+> („Muster Haarstudio", „Musterstraße 1, 12345 Musterstadt" usw.) und
+> müssen vor dem Go-Live durch die echten Daten ersetzt werden.
+> Die ursprünglichen Werte sind intern in `ORIGINAL_DATA.md` dokumentiert
+> (vom Deploy via `.vercelignore` ausgeschlossen).
 
 ## Inhalt der Seite
 
