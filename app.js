@@ -1,4 +1,4 @@
-/* app.js — SIDE Haarstudio Münster
+/* app.js — Muster Haarstudio
    Vanilla JS: reveal-on-scroll, active nav, mobile menu, portfolio
    lightbox, price tabs, and the multi-step booking request modal. */
 (function () {
@@ -309,7 +309,7 @@
     var f = bk.form;
     var subj = "Terminanfrage · " + bk.svc;
     var lines = [
-      "Hallo SIDE-Team,", "",
+      "Hallo MUSTER-Team,", "",
       "ich würde gern einen Termin anfragen:",
       "• Leistung: " + bk.svc,
       "• Wunschtag: " + fmtDay(bk.day),
@@ -378,7 +378,7 @@
   function mountBooking() {
     bkRoot.innerHTML =
       '<div class="bk-overlay"><div class="bk-modal"><button class="bk-close" aria-label="Schließen">✕</button>' +
-      '<div class="bk-head"><div class="bk-eyebrow">Terminanfrage</div><div class="bk-title">SIDE Haarstudio Münster</div>' +
+      '<div class="bk-head"><div class="bk-eyebrow">Terminanfrage</div><div class="bk-title">Muster Haarstudio</div>' +
       '<div class="bk-steps" id="bkSteps"></div></div>' +
       '<div class="bk-body" id="bkBody"></div>' +
       '<div class="bk-foot" id="bkFoot"></div>' +
@@ -483,8 +483,8 @@
       if (box.querySelector("iframe")) return;
       var ifr = document.createElement("iframe");
       ifr.src = "https://www.google.com/maps?q=" +
-        encodeURIComponent("Side Haarstudio, Aegidiistraße 17, 48143 Münster") + "&output=embed";
-      ifr.title = "Standort Side Haarstudio auf Google Maps";
+        encodeURIComponent("Musterstraße 1, 12345 Musterstadt") + "&output=embed";
+      ifr.title = "Standort Muster Haarstudio auf Google Maps";
       ifr.loading = "lazy";
       ifr.referrerPolicy = "no-referrer-when-downgrade";
       ifr.setAttribute("allowfullscreen", "");

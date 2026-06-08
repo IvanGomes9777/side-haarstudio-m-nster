@@ -1,7 +1,7 @@
-# robots.txt — SIDE Haarstudio Münster
+# robots.txt — Muster Haarstudio
 # Alle Suchmaschinen dürfen die komplette Seite crawlen.
 User-agent: *
 Allow: /
 
 # Verweis auf die Sitemap (absolute URL — Domain ggf. anpassen)
-Sitemap: https://www.side-haarstudio-muenster.de/sitemap.xml
+Sitemap: https://www.muster-haarstudio.de/sitemap.xml

@@ -1,5 +1,5 @@
 /* ============================================================
-   SIDE Haarstudio Münster — Design System
+   Muster Haarstudio — Design System
    Warm brown / cream luxury salon. Serif display + geometric sans.
    Layout is container-query driven so the same markup reflows for
    wide desktop and narrow phone widths.
@@ -181,7 +181,7 @@ img{ display:block; max-width:100%; }
 .hero[data-layout="image"] .hero-media::after{
   content:""; position:absolute; inset:0; z-index:1;
   /* Darkening sits mainly at the bottom (headline legibility); the left edge
-     gets only a light touch so the "Side Haarstudio" sign stays bright. */
+     gets only a light touch so the salon sign stays bright. */
   background:linear-gradient(0deg, rgba(53,40,32,.78) 0%, rgba(53,40,32,.30) 38%, rgba(53,40,32,0) 60%),
              linear-gradient(90deg, rgba(53,40,32,.32) 0%, rgba(53,40,32,0) 34%);
 }
